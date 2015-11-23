@@ -55,7 +55,6 @@ public class DatePickerFragment extends DialogFragment {
     @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-
         //Use the arguments to get the serialized date. This date will
         //come out of the arguments as a serializable interface type
         //and will therefore need to be cast to a Date object.

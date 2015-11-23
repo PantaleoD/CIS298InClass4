@@ -20,7 +20,6 @@ import android.widget.EditText;
 import java.util.Date;
 import java.util.UUID;
 
-
 public class CrimeFragment extends Fragment {
 
     //static string to be used as the key for parameters we set
@@ -66,8 +65,6 @@ public class CrimeFragment extends Fragment {
         return fragment;
     }
 
-
-
     //This method does not do the inflating of the view
     //like the onCreate for an activity does
     @Override
@@ -90,7 +87,6 @@ public class CrimeFragment extends Fragment {
         //getCrime method on it passing in the UUID to get back
         //a single crime.
         mCrime = lab.getCrime(crimeId);
-
     }
 
     //This method IS responisble for inflating the view
@@ -172,6 +168,15 @@ public class CrimeFragment extends Fragment {
         });
 
         return v;
+    }
+
+    @Override                             // added w/ CHPT 14 to show updates (its a start!) pg 265 of book
+    public void onPause() {
+        super.onPause();
+                    //    get teh CrimeLab instance use the static get method
+        //  and call the updateCrime method sending over the updated crime.
+        CrimeLab.get(getActivity())
+                .updateCrime(mCrime);
     }
 
     //This method will be called when the result of an activity returns
